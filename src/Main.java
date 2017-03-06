@@ -38,28 +38,7 @@ public class Main {
         Elements Argon = new Elements("Ar",0);
 
         //Insert the elements here to see if an element exists
-        System.out.println(twoElements(HydrogenPositive,Chlorine));
-
-    }
-    public static String twoElements(Elements element1, Elements element2) {
-        int sum = element1.value + element2.value;
-
-        if (sum == 0){
-            return (element1.name + "1" + element2.name + "1");
-        }else if (sum - element2.value == 0){
-            return (element1.name + "1" + element2.name + "2");
-        }else if (sum - 2*element2.value == 0){
-            return (element1.name + "1" + element2.name + "3");
-        }else if (sum - 3*element2.value == 0){
-            return (element1.name + "1" + element2.name + "4");
-        }else if (sum + element1.value == 0){
-            return (element1.name + "2" + element2.name + "1");
-        }else if (sum + 2*element1.value == 0){
-            return (element1.name + "3" + element2.name + "1");
-        }else if (sum + 3*element1.value ==0){
-            return (element1.name + "4" + element2.name + "1");
-        }else {
-            return ("MAYBE the molecule does not exist");
-        }
+        String Answer = Elements.twoElements(HydrogenPositive,Chlorine);
+        System.out.println(Answer);
     }
 }
