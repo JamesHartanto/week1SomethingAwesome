@@ -15,88 +15,51 @@ public class Main {
         //    String[] group7 = {"H-","F","Cl"};
         //    String[] group8 = {"He","Ne","Ar"};
 
-        Elements Hpos = new Elements();
-        Elements Li = new Elements();
-        Elements Na = new Elements();
-        Elements K = new Elements();
-        Elements Be = new Elements();
-        Elements Mg = new Elements();
-        Elements Ca = new Elements();
-        Elements B = new Elements();
-        Elements Al = new Elements();
-        Elements C = new Elements();
-        Elements Si = new Elements();
-        Elements N = new Elements();
-        Elements P = new Elements();
-        Elements O = new Elements();
-        Elements S = new Elements();
-        Elements Hneg = new Elements();
-        Elements F = new Elements();
-        Elements Cl = new Elements();
-        Elements He = new Elements();
-        Elements Ne = new Elements();
-        Elements Ar = new Elements();
+        Elements HydrogenPositive = new Elements("H",1);
+        Elements Lithium = new Elements("Li",1);
+        Elements Sodium = new Elements("Na",1);
+        Elements Potassium = new Elements("K",1);
+        Elements Beryllium = new Elements("Be",2);
+        Elements Magnesium = new Elements("Mg",2);
+        Elements Calcium = new Elements("Ca",2);
+        Elements Boron = new Elements("B",3);
+        Elements Aluminum = new Elements("Al",3);
+        Elements Carbon = new Elements("C",4);
+        Elements Silicon = new Elements("Si",4);
+        Elements Nitrogen = new Elements("N",5);
+        Elements Phosporus = new Elements("P",5);
+        Elements Oxygen = new Elements("O",-2);
+        Elements Sulfur = new Elements("S",-2);
+        Elements HydrogenNegative = new Elements("H",-1);
+        Elements Florine = new Elements("F",-1);
+        Elements Chlorine = new Elements("Cl",-1);
+        Elements Helium = new Elements("He",0);
+        Elements Neon = new Elements("Ne",0);
+        Elements Argon = new Elements("Ar",0);
 
-        //Group 1
-        Hpos.name = "HydrogenPositive";
-        Hpos.value = 1;
-        Li.name = "Lithium";
-        Li.value = 1;
-        Na.name = "Sodium";
-        Na.value = 1;
-        K.name = "Potassium";
-        K.value = 1;
+        //Insert the elements here to see if an element exists
+        System.out.println(twoElements(HydrogenPositive,Chlorine));
 
-        //Group 2
-        Be.name = "Beryllium";
-        Be.value = 2;
-        Mg.name = "Magnesium";
-        Mg.value = 2;
-        Ca.name = "Calcium";
-        Ca.value = 2;
+    }
+    public static String twoElements(Elements element1, Elements element2) {
+        int sum = element1.value + element2.value;
 
-        //Group 3
-        B.name = "Boron";
-        B.value = 3;
-        Al.name = "Aluminum";
-        Al.value = 3;
-
-        //Group 4
-        C.name = "Carbon";
-        C.value = 4;
-        Si.name = "Silicon";
-        Si.value = 4;
-
-        //Group 5
-        N.name = "Nitrogen";
-        N.value = 5; //Not quite true
-        P.name = "Phosphorus";
-        P.value = 5; //Not true
-
-        //Group 6
-        O.name = "Oxygen";
-        O.value = -2;
-        S.name = "Sulfur";
-        S.value = -2;
-
-        //Group 7
-        Hneg.name = "HydrogenNegative";
-        Hneg.value = -1;
-        F.name = "Florine";
-        F.value = -1;
-        Cl.name = "Chlorine";
-        Cl.value = -1;
-
-        //Group 8
-        He.name = "Helium";
-        He.value = 0;
-        Ne.name = "Neon";
-        Ne.value = 0;
-        Ar.name = "Argon";
-        Ar.value = 0;
-
-
-        //Not sure why I cannot call the method
-        //twoElements(Hpos,Hneg);
+        if (sum == 0){
+            return (element1.name + "1" + element2.name + "1");
+        }else if (sum - element2.value == 0){
+            return (element1.name + "1" + element2.name + "2");
+        }else if (sum - 2*element2.value == 0){
+            return (element1.name + "1" + element2.name + "3");
+        }else if (sum - 3*element2.value == 0){
+            return (element1.name + "1" + element2.name + "4");
+        }else if (sum + element1.value == 0){
+            return (element1.name + "2" + element2.name + "1");
+        }else if (sum + 2*element1.value == 0){
+            return (element1.name + "3" + element2.name + "1");
+        }else if (sum + 3*element1.value ==0){
+            return (element1.name + "4" + element2.name + "1");
+        }else {
+            return ("MAYBE the molecule does not exist");
+        }
     }
 }
